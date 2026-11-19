@@ -1,8 +1,10 @@
 # Changelog
 
-## [Unreleased]
+## [2.4.1] - 2026-11-19
 
 ### Cambiado
+
+- PracticeOgl usa `fix_pill_pass` con pase por recarga, como ZoneMod.
 
 - Los datos y comandos por mapa de PracticeOgl se sincronizaron con ZoneMod
   1v1 v2.9.2b, incluida la configuración de Dead Center 2025.

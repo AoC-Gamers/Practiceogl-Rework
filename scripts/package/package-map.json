@@ -41,9 +41,5 @@
   ],
   "external_stripper": [
     "cfg/stripper/zonemod"
-  ],
-  "license_files": [
-    "LICENSES/GPL-3.0.txt",
-    "LICENSES/CC-BY-SA-3.0.txt"
   ]
 }

@@ -1,0 +1,49 @@
+{
+  "build": {
+    "plugins": {
+      "optional": [
+        "l4d2_thirdperson",
+        "l4d2_zcs",
+        "l4d_InfiniteReserveAmmo",
+        "practiceogl",
+        "witch_glow"
+      ]
+    }
+  },
+  "selectable_modes": [
+    "pr1v1"
+  ],
+  "modes": {
+    "pr1v1": [
+      "confogl.cfg",
+      "confogl_off.cfg",
+      "confogl_plugins.cfg",
+      "mapcvars.txt",
+      "mapinfo.txt",
+      "pr1v1.cfg"
+    ],
+    "practiceogl": [
+      "confogl_off.cfg",
+      "shared_cvars.cfg",
+      "shared_plugins.cfg",
+      "shared_settings.cfg"
+    ]
+  },
+  "resources": [
+    "addons/sourcemod/gamedata/l4d2_zcs.txt",
+    "addons/sourcemod/translations/es/practiceogl.phrases.txt",
+    "addons/sourcemod/translations/practiceogl.phrases.txt"
+  ],
+  "external_exec": [
+    "confogl_personalize.cfg",
+    "confogl_rates.cfg",
+    "cvar_tracking.cfg"
+  ],
+  "external_stripper": [
+    "cfg/stripper/zonemod"
+  ],
+  "license_files": [
+    "LICENSES/GPL-3.0.txt",
+    "LICENSES/CC-BY-SA-3.0.txt"
+  ]
+}

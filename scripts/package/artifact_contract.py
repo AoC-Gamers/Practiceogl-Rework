@@ -89,6 +89,33 @@ def build_record(root: Path, manifest: dict, compiled: Path) -> dict:
     }
 
 
+def validate_legal_files(root: Path) -> None:
+    license_text = (root / "LICENSE").read_text(encoding="utf-8-sig")
+    markers = (
+        "GNU AFFERO GENERAL PUBLIC LICENSE",
+        "Version 3, 19 November 2007",
+        "Preamble",
+        "END OF TERMS AND CONDITIONS",
+    )
+    if not all(marker in license_text for marker in markers):
+        raise ValueError("LICENSE must contain the full AGPLv3 text")
+
+    notices = (root / "NOTICES.md").read_text(encoding="utf-8-sig")
+    if "https://creativecommons.org/licenses/by-sa/3.0/" not in notices:
+        raise ValueError("NOTICES.md must link to CC BY-SA 3.0 for the mode configuration")
+
+    _, _, appendix = notices.partition("\n## Texto completo de GPLv3\n")
+    gpl_text = re.search(r"^```text\n(.*?)^```$", appendix, re.MULTILINE | re.DOTALL)
+    gpl_markers = (
+        "GNU GENERAL PUBLIC LICENSE",
+        "Version 3, 29 June 2007",
+        "Preamble",
+        "END OF TERMS AND CONDITIONS",
+    )
+    if not gpl_text or not all(marker in gpl_text[1] for marker in gpl_markers):
+        raise ValueError("NOTICES.md must include the full GPLv3 text")
+
+
 def product_sources(root: Path, manifest: dict) -> set[Path]:
     plugins = plugin_paths(manifest)
     paths = []
@@ -120,6 +147,7 @@ def product_sources(root: Path, manifest: dict) -> set[Path]:
     unique_paths([*product, *plugins])
     for path in sorted(product):
         require_file(root, path)
+    validate_legal_files(root)
 
     external_exec = set(manifest["external_exec"])
     external_stripper = set(manifest.get("external_stripper", []))

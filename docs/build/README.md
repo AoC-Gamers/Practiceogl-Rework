@@ -49,10 +49,8 @@ La base aporta `fix_pill_pass.smx`, su gamedata y la extensión SourceScramble.
 
 La variante pr1v1 usa los archivos compartidos en cfg/cfgogl/practiceogl y el árbol Stripper de ZoneMod de la base. ReadyUp y Left4DHooks se instalan con sus proveedores.
 
-La aceptación en SRCDS requiere comprobar la activación, el inicio de ronda,
-el cambio de modo y la restauración de cvars. La validación offline cubre
-el contenido del paquete. Los pendientes para una publicación se registran
-en `NOTICES.md`.
+La validación offline cubre el contenido del paquete. Los pendientes para
+una publicación se registran en `NOTICES.md`.
 
 El validador comprueba el texto de la licencia GNU y el enlace CC BY-SA 3.0
 en `NOTICES.md` antes de empaquetar.

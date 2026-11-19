@@ -11,3 +11,22 @@ Consulta [el índice de documentación](docs/README.md) y
   `.deps/`, `.build/` y `dist/`.
 - Conserva autoría y licencias. Distingue compilación, validación offline y
   prueba en SRCDS. Los cambios remotos y el despliegue requieren autorización.
+
+## Actualizar la base de ZoneMod
+
+1. Toma la versión y el SHA de la [referencia técnica](docs/mode/zonemod-baseline.md).
+   Compara esa revisión con la candidata en `cfg/cfgogl/zm1v1`. Sigue los
+   `exec` hasta los CFG compartidos de `zonemod` y revisa los cambios en
+   Plugin Manager, la validación de clientes y Stripper.
+2. Compara la nueva base con `pr1v1` y los CFG compartidos de
+   `practiceogl`. Aplica los cambios acordados y conserva las herramientas
+   y reglas de práctica. Revisa los límites por mapa, el orden de carga y la
+   descarga de plugins. Ajusta el mapa de producto si cambian los recursos
+   instalables o sus referencias externas.
+3. Ejecuta `make validate-modes`, `make release` y `make validate-artifact`.
+   Si falta una compilación válida o cambian fuentes o includes, sigue la guía
+   de compilación y ejecuta `make build-smx` antes de empaquetar.
+   Registra por separado la prueba en SRCDS de carga, inicio de ronda y cambio
+   de modo. Actualiza la revisión, el alcance sincronizado y las diferencias
+   pendientes en la referencia técnica. Anota los cambios de comportamiento
+   en el changelog.

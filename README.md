@@ -1,4 +1,4 @@
-# PracticeOgl Rework v2.4.1
+# PracticeOgl Rework v2.4.2
 
 [EN] [translation](https://translate.google.com/translate?sl=es&tl=en&u=https://github.com/AoC-Gamers/practiceogl_rework)
 
